@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "PlayScene/Camera.h"
 #include "Screen.h"
 #include "DxLib.h"
 #include "Map.h"

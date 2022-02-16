@@ -1,16 +1,16 @@
 #pragma once
 #include "Game.h"
 #include "DxLib.h"
-#include "Input.h"
-#include "Image.h"
-#include "Sound.h"
-#include "Font.h"
+#include "Util/Input.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
+#include "AssetsManager/Font.h"
 
 #include "SceneManager.h"
-#include "TitleScene.h"
-#include "PlayScene.h"
-#include "PauseScene.h"
-#include "ClearScene.h"
+#include "TitleScene/TitleScene.h"
+#include "PlayScene/PlayScene.h"
+#include "PauseScene/PauseScene.h"
+#include "ClearScene/ClearScene.h"
 
 //ゲーム固有の処理を担当する派生クラス
 //事実上のメイン関数

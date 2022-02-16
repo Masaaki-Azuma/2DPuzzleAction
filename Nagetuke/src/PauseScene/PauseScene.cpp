@@ -1,11 +1,11 @@
-#include "PauseScene.h"
+#include "PauseScene/PauseScene.h"
 #include "DxLib.h"
-#include "Image.h"
-#include "Sound.h"
-#include "Input.h"
-#include "Font.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
+#include "Util/Input.h"
+#include "AssetsManager/Font.h"
 #include "Game.h"
-#include "TitleScene.h"
+#include "TitleScene/TitleScene.h"
 #include <string>
 #include "SceneManager.h"
 

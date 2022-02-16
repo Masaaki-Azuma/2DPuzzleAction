@@ -1,10 +1,10 @@
-#include "TitleScene.h"
+#include "TitleScene/TitleScene.h"
 #include "DxLib.h"
-#include "Input.h"
-#include "Image.h"
-#include "Sound.h"
-#include "Font.h"
-#include "Map.h"
+#include "Util/Input.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
+#include "AssetsManager/Font.h"
+#include "PlayScene/Map.h"
 #include "SceneManager.h"
 
 TitleScene::TitleScene(SceneManager* sceneManager)

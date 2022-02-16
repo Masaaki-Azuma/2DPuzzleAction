@@ -1,8 +1,8 @@
 #include "Goal.h"
 #include "DxLib.h"
-#include "Camera.h"
-#include "Image.h"
-#include "PlayScene.h"
+#include "PlayScene/Camera.h"
+#include "AssetsManager/Image.h"
+#include "PlayScene/PlayScene.h"
 #include "Player.h"
 
 Goal::Goal(float x, float y, PlayScene* playScene) :

@@ -1,8 +1,8 @@
 #include "CrossEffect.h"
 #include "DxLib.h"
-#include "Camera.h"
-#include "Image.h"
-#include "Sound.h"
+#include "PlayScene/Camera.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
 
 CrossEffect::CrossEffect(float x, float y)
 {

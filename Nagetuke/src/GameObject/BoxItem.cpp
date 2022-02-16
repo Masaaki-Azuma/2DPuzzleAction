@@ -2,8 +2,8 @@
 #include "DxLib.h"
 #include <cmath>
 #include <typeinfo>
-#include "Camera.h"
-#include "Image.h"
+#include "PlayScene/Camera.h"
+#include "AssetsManager/Image.h"
 #include "Player.h"
 
 BoxItem::BoxItem(float x, float y, PlayScene* playScene):

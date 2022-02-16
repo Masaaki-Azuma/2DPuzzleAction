@@ -1,15 +1,15 @@
-#include "PlayScene.h"
+#include "PlayScene/PlayScene.h"
 #include "DxLib.h"
 #include <algorithm>//for_each
 #include "Game.h"
-#include "Input.h"
-#include "Sound.h"
-#include "MyMath.h"
+#include "Util/Input.h"
+#include "AssetsManager/Sound.h"
+#include "Util/MyMath.h"
 #include "Map.h"
-#include "Camera.h"
-#include "TitleScene.h"
-#include "Player.h"
-#include "Effect.h"
+#include "PlayScene/Camera.h"
+#include "TitleScene/TitleScene.h"
+#include "GameObject/Player.h"
+#include "Effect/Effect.h"
 #include "SceneManager.h"
 
 /*TODO:

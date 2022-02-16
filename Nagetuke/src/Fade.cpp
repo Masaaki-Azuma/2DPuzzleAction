@@ -1,6 +1,6 @@
 #include "Fade.h"
 #include "DxLib.h"
-#include "Image.h"
+#include "AssetsManager/Image.h"
 
 Fade::Fade():
 	alpha_(0),

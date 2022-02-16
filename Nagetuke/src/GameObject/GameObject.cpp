@@ -1,8 +1,8 @@
 #include "GameObject.h"
 #include "DxLib.h"
-#include "Camera.h" 
-#include "PlayScene.h"
-#include "Map.h"
+#include "PlayScene/Camera.h" 
+#include "PlayScene/PlayScene.h"
+#include "PlayScene/Map.h"
 
 GameObject::GameObject(float x, float y, PlayScene* playScene, int width, int height) :
 	x_(x),

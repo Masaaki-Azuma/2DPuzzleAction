@@ -1,9 +1,9 @@
-#include "ClearScene.h"
+#include "ClearScene/ClearScene.h"
 #include "DxLib.h"
-#include "Image.h"
-#include "Input.h"
-#include "Sound.h"
-#include "Font.h"
+#include "AssetsManager/Image.h"
+#include "Util/Input.h"
+#include "AssetsManager/Sound.h"
+#include "AssetsManager/Font.h"
 #include "SceneManager.h"
 
 ClearScene::ClearScene(SceneManager* sceneManager)

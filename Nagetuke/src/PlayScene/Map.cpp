@@ -2,15 +2,15 @@
 #include <memory>
 #include <cassert>
 #include "DxLib.h"
-#include "Image.h"
-#include "Sound.h"
-#include "Font.h"
-#include "FileReader.h"
-#include "Camera.h"
-#include "PlayScene.h"
-#include "Player.h"
-#include "Goal.h"
-#include "BoxItem.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
+#include "AssetsManager/Font.h"
+#include "Util/FileReader.h"
+#include "PlayScene/Camera.h"
+#include "PlayScene/PlayScene.h"
+#include "GameObject/Player.h"
+#include "GameObject/Goal.h"
+#include "GameObject/BoxItem.h"
 #include "Game.h"
 
 Map::Map()

@@ -1,4 +1,4 @@
-#include "Input.h"
+#include "Util/Input.h"
 #include "DxLib.h"
 
 //staticメンバを実体化

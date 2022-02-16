@@ -2,7 +2,7 @@
 #define WORLD_H_
 
 #include "GameObjectManager.h"
-#include "Camera.h"
+#include "PlayScene/Camera.h"
 
 class World
 {

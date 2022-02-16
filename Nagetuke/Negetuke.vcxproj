@@ -96,7 +96,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\GitProjects\2DPuzzleAction\Nagetuke\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -113,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\GitProjects\2DPuzzleAction\Nagetuke\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\GitProjects\2DPuzzleAction\Nagetuke\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -147,7 +147,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\masaaki\Downloads\DxLib_VC3_22c\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\GitProjects\2DPuzzleAction\Nagetuke\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -159,64 +159,84 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="BoxItem.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="ClearScene.cpp" />
-    <ClCompile Include="CrossEffect.cpp" />
-    <ClCompile Include="Fade.cpp" />
-    <ClCompile Include="FileReader.cpp" />
-    <ClCompile Include="Font.cpp" />
-    <ClCompile Include="Fps.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectManager.cpp" />
-    <ClCompile Include="Goal.cpp" />
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MyMath.cpp" />
-    <ClCompile Include="PauseScene.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="PlayScene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Sound.cpp" />
-    <ClCompile Include="ThrownBox.cpp" />
-    <ClCompile Include="TitleScene.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="src\GameObject\BoxItem.cpp" />
+    <ClCompile Include="src\PlayScene\Camera.cpp" />
+    <ClCompile Include="src\ClearScene\ClearScene.cpp" />
+    <ClCompile Include="src\Effect\CrossEffect.cpp" />
+    <ClCompile Include="src\Fade.cpp" />
+    <ClCompile Include="src\Util\FileReader.cpp" />
+    <ClCompile Include="src\AssetsManager\Font.cpp" />
+    <ClCompile Include="src\Fps.cpp" />
+    <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\Old\GameObjectManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Goal.cpp" />
+    <ClCompile Include="src\AssetsManager\Image.cpp" />
+    <ClCompile Include="src\Util\Input.cpp" />
+    <ClCompile Include="src\PlayScene\Map.cpp" />
+    <ClCompile Include="src\Util\MyMath.cpp" />
+    <ClCompile Include="src\PauseScene\PauseScene.cpp" />
+    <ClCompile Include="src\GameObject\Player.cpp" />
+    <ClCompile Include="src\PlayScene\PlayScene.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\AssetsManager\Sound.cpp" />
+    <ClCompile Include="src\GameObject\ThrownBox.cpp" />
+    <ClCompile Include="src\TitleScene\TitleScene.cpp" />
+    <ClCompile Include="src\Old\World.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="BoxItem.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="ClearScene.h" />
-    <ClInclude Include="CrossEffect.h" />
-    <ClInclude Include="Direction.h" />
-    <ClInclude Include="Effect.h" />
-    <ClInclude Include="Fade.h" />
-    <ClInclude Include="FileReader.h" />
-    <ClInclude Include="Font.h" />
-    <ClInclude Include="Fps.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectManager.h" />
-    <ClInclude Include="Goal.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="MyGame.h" />
-    <ClInclude Include="MyMath.h" />
-    <ClInclude Include="NullScene.h" />
-    <ClInclude Include="PauseScene.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="PlayScene.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="Sound.h" />
-    <ClInclude Include="ThrownBox.h" />
-    <ClInclude Include="TitleScene.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\GameObject\BoxItem.h" />
+    <ClInclude Include="src\PlayScene\Camera.h" />
+    <ClInclude Include="src\ClearScene\ClearScene.h" />
+    <ClInclude Include="src\Effect\CrossEffect.h" />
+    <ClInclude Include="src\GameObject\Direction.h" />
+    <ClInclude Include="src\Effect\Effect.h" />
+    <ClInclude Include="src\Fade.h" />
+    <ClInclude Include="src\Util\FileReader.h" />
+    <ClInclude Include="src\AssetsManager\Font.h" />
+    <ClInclude Include="src\Fps.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameObject\GameObject.h" />
+    <ClInclude Include="src\Old\GameObjectManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\Goal.h" />
+    <ClInclude Include="src\AssetsManager\Image.h" />
+    <ClInclude Include="src\Util\Input.h" />
+    <ClInclude Include="src\PlayScene\Map.h" />
+    <ClInclude Include="src\MyGame.h" />
+    <ClInclude Include="src\Util\MyMath.h" />
+    <ClInclude Include="src\NullScene.h" />
+    <ClInclude Include="src\PauseScene\PauseScene.h" />
+    <ClInclude Include="src\GameObject\Player.h" />
+    <ClInclude Include="src\PlayScene\PlayScene.h" />
+    <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\Screen.h" />
+    <ClInclude Include="src\AssetsManager\Sound.h" />
+    <ClInclude Include="src\GameObject\ThrownBox.h" />
+    <ClInclude Include="src\TitleScene\TitleScene.h" />
+    <ClInclude Include="src\Old\World.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Image\backGround.png" />

@@ -1,8 +1,8 @@
 #include "ThrownBox.h"
 #include "DxLib.h"
-#include "Image.h"
-#include "Sound.h"
-#include "Camera.h"
+#include "AssetsManager/Image.h"
+#include "AssetsManager/Sound.h"
+#include "PlayScene/Camera.h"
 #include "Screen.h"
 #include "Player.h"
 #include <typeinfo>
