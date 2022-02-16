@@ -7,84 +7,34 @@
 #include "PlayScene/Map.h"
 #include "SceneManager.h"
 
-TitleScene::TitleScene(SceneManager* sceneManager)
+TitleScene::TitleScene(SceneManager& sceneManager):
+	sceneManager_{sceneManager}
 {
-	sceneManager_ = sceneManager;
+
 }
 
 TitleScene::‾TitleScene()
 {
 }
 
-void TitleScene::IncreaseLevel()
-{
-	state_ = INCREASE;
-}
-
-void TitleScene::DecreaseLevel()
-{
-	state_ = DECREASE;
-}
-
 void TitleScene::Start()
 {
+	//フラグを初期化
 	isFadingEnd_ = false;
 	isSceneEnd_ = false;
 	Sound::PlayBGM("Assets/BGM/コイントス.mp3", 150);
-	sceneManager_->StartFade(Fade::FADEIN);
+	sceneManager_.StartFade(Fade::FADEIN);
 }
 
 void TitleScene::Update()
 {
-	if (state_ == START) {
-		if (Input::GetButtonDown(PAD_INPUT_A)) {
-			state_ = SELECT;
-			Sound::PlaySE(Sound::select);
-			return;
-		}
+	//画面状態によって遷移
+	switch (state_) {
+	case START:    WaitToPressKey();  break;
+	case SELECT:   SelectStage();     break;
+	case INCREASE: ScrollNextStage(); break;
+	case DECREASE: ScrollPrevStage(); break;
 	}
-	else if(state_ == SELECT){
-		//終了した次のフレームで変わる
-		if (isFadingEnd_) {
-			sceneManager_->SetMapLevel(levelNum_);
-			isSceneEnd_ = true;
-			return;
-		}
-
-		if (Input::GetButtonDown(PAD_INPUT_A))
-		{
-			Sound::PlaySE(Sound::select);
-			sceneManager_->StartFade(Fade::FADEOUT);
-			isFadingEnd_ = true;
-		}
-
-		if (Input::GetButton(PAD_INPUT_DOWN) && levelNum_ < Map::MaxLevel_) {
-			IncreaseLevel();
-			Sound::PlaySE(Sound::cursorMove);
-		}
-		else if(Input::GetButton(PAD_INPUT_UP) && levelNum_ > 1){
-			DecreaseLevel();
-			Sound::PlaySE(Sound::cursorMove);
-		}
-	}
-	else if (state_ == INCREASE) {
-		levelNameY_ -= 5;
-		if (levelNameY_ <= 450) {
-			levelNameY_ = 500;
-			levelNum_++;
-			state_ = SELECT;
-		}
-	}
-	else if (state_ == DECREASE) {
-		levelNameY_ += 5;
-		if (levelNameY_ >= 550) {
-			levelNameY_ = 500;
-			levelNum_--;
-			state_ = SELECT;
-		}
-	}
-
-	
 }
 
 void TitleScene::Draw() const
@@ -114,6 +64,10 @@ void TitleScene::Draw() const
 	}
 }
 
+void TitleScene::End()
+{
+}
+
 bool TitleScene::IsSceneEnd() const
 {
 	return isSceneEnd_;
@@ -123,3 +77,75 @@ std::string TitleScene::Next() const
 {
 	return "PlayScene";
 }
+
+void TitleScene::EndScene()
+{
+	isSceneEnd_ = true;
+}
+
+void TitleScene::IncreaseLevel()
+{
+	state_ = INCREASE;
+}
+
+void TitleScene::DecreaseLevel()
+{
+	state_ = DECREASE;
+}
+
+void TitleScene::WaitToPressKey()
+{
+	if (Input::GetButtonDown(PAD_INPUT_A)) {
+		state_ = SELECT;
+		Sound::PlaySE(Sound::select);
+		return;
+	}
+}
+
+void TitleScene::SelectStage()
+{
+	//終了した次のフレームで変わる
+	if (isFadingEnd_) {
+		sceneManager_.SetMapLevel(levelNum_);
+		isSceneEnd_ = true;
+		return;
+	}
+
+	if (Input::GetButtonDown(PAD_INPUT_A)) 		{
+		Sound::PlaySE(Sound::select);
+		sceneManager_.StartFade(Fade::FADEOUT);
+		isFadingEnd_ = true;
+	}
+
+	if (Input::GetButton(PAD_INPUT_DOWN) && levelNum_ < Map::MaxLevel_) {
+		//次ステージへスクロール状態に遷移
+		IncreaseLevel();
+		Sound::PlaySE(Sound::cursorMove);
+	}
+	else if (Input::GetButton(PAD_INPUT_UP) && levelNum_ > 1) {
+		//前ステージへスクロール状態に遷移
+		DecreaseLevel();
+		Sound::PlaySE(Sound::cursorMove);
+	}
+}
+
+void TitleScene::ScrollNextStage()
+{
+	levelNameY_ -= 5;
+	if (levelNameY_ <= 450) {
+		levelNameY_ = 500;
+		levelNum_++;
+		state_ = SELECT;
+	}
+}
+
+void TitleScene::ScrollPrevStage()
+{
+	levelNameY_ += 5;
+	if (levelNameY_ >= 550) {
+		levelNameY_ = 500;
+		levelNum_--;
+		state_ = SELECT;
+	}
+}
+
