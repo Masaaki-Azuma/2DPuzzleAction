@@ -11,9 +11,9 @@
 
 const int MaxOption = 2;
 
-PauseScene::PauseScene(SceneManager* sceneManager)
+PauseScene::PauseScene(SceneManager& sceneManager):
+	Scene{sceneManager}
 {
-	sceneManager_ = sceneManager;
 }
 
 PauseScene::‾PauseScene()
@@ -30,7 +30,7 @@ void PauseScene::Start()
 void PauseScene::Update()
 {
 	if (isFadingEnd_) {
-		sceneManager_->EndCurrentScene();
+		sceneManager_.EndCurrentScene();
 		isSceneEnd_ = true;
 		return;
 	}
@@ -47,17 +47,17 @@ void PauseScene::Update()
 		Option option = (Option)selectedOption_;
 		if (option == RETURN) {
 			Sound::ChangeVolume(220);
-			sceneManager_->EndOverlap();
+			sceneManager_.EndOverlap();
 		}
 		else if (option == TITLE) {
-			sceneManager_->StartFade(Fade::FADEOUT);
+			sceneManager_.StartFade(Fade::FADEOUT);
 			isFadingEnd_ = true;
 		}
 	}
 
 	if (Input::GetButtonDown(PAD_INPUT_R)) {//START
 		Sound::ChangeVolume(220);
-		sceneManager_->EndOverlap();
+		sceneManager_.EndOverlap();
 	}
 }
 

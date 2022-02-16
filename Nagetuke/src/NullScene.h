@@ -4,6 +4,8 @@ class NullScene :
     public Scene
 {
 public:
+    NullScene(SceneManager& sceneManager):
+        Scene{sceneManager} {}
     void Start() override {};
     void Update() override {};
     void Draw() const override {};

@@ -8,7 +8,7 @@
 #include "SceneManager.h"
 
 TitleScene::TitleScene(SceneManager& sceneManager):
-	sceneManager_{sceneManager}
+	Scene{sceneManager}
 {
 
 }

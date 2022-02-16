@@ -21,9 +21,9 @@ MapからFadeを分離
 //不要なコンストラクタの削除
 //カメラを分離
 
-PlayScene::PlayScene(SceneManager* sceneManager)
+PlayScene::PlayScene(SceneManager& sceneManager):
+	Scene{sceneManager}
 {
-	sceneManager_ = sceneManager;
 }
 
 PlayScene::‾PlayScene()
@@ -35,12 +35,12 @@ void PlayScene::Start()
 	isFadingEnd_ = false;
 	isSceneEnd_ = false;
 	if (!map_) {
-		map_ = sceneManager_->GetMapPtr();
+		map_ = sceneManager_.GetMapPtr();
 	}
 	if (!map_->playScene_) {
 		map_->playScene_ = this;
 	}
-	sceneManager_->StartFade(Fade::FADEIN);
+	sceneManager_.StartFade(Fade::FADEIN);
 	map_->LoadLevel();
 	Camera::LookAt(player_->GetX(), player_->GetY());
 }
@@ -49,7 +49,7 @@ void PlayScene::Update()
 {
 	//暗転中に現レベルをロードし、フェードインする
 	if (isLevelEnd_) {
-		sceneManager_->StartFade(Fade::FADEIN);
+		sceneManager_.StartFade(Fade::FADEIN);
 		map_->LoadLevel();
 		Camera::LookAt(player_->GetX(), player_->GetY());
 		isLevelEnd_ = false;
@@ -58,7 +58,7 @@ void PlayScene::Update()
 
 	//ポース画面を開く
 	if (Input::GetButtonDown(PAD_INPUT_R)) {//START
-		sceneManager_->SetOverlappingScene("PauseScene");
+		sceneManager_.SetOverlappingScene("PauseScene");
 		return;
 	}
 
@@ -136,7 +136,7 @@ std::string PlayScene::Next() const
 
 void PlayScene::RestartLevel()
 {
-	sceneManager_->StartFade(Fade::FADEOUT);
+	sceneManager_.StartFade(Fade::FADEOUT);
 	isLevelEnd_ = true;
 }
 
@@ -152,5 +152,5 @@ bool PlayScene::IsNeedle(float x, float y)
 
 void PlayScene::GameClear()
 {
-	sceneManager_->SetOverlappingScene("ClearScene");
+	sceneManager_.SetOverlappingScene("ClearScene");
 }

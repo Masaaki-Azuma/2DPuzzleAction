@@ -8,6 +8,11 @@ class SceneManager;
 class Scene
 {
 public:
+	Scene(SceneManager& sceneManager):
+		sceneManager_{sceneManager}
+	{
+
+	}
 	virtual ‾Scene() = default;
 public:
 	virtual void Start() = 0;
@@ -20,6 +25,6 @@ public:
 protected:
 	bool isFadingEnd_ = false;
 	bool isSceneEnd_ = false;
-	SceneManager* sceneManager_{ nullptr };
+	SceneManager& sceneManager_;
 };
 #endif//!SCENE_H_

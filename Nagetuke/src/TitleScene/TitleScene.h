@@ -43,6 +43,6 @@ private:
     int levelNameY_ = 500;
     bool isFadingEnd_ = false;
     bool isSceneEnd_ = false;
-    SceneManager& sceneManager_;
+    //SceneManager& sceneManager_;
 };
 #endif//!TITLE_SCENE_H_

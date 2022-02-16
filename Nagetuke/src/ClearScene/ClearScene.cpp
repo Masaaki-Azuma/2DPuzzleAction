@@ -6,9 +6,9 @@
 #include "AssetsManager/Font.h"
 #include "SceneManager.h"
 
-ClearScene::ClearScene(SceneManager* sceneManager)
+ClearScene::ClearScene(SceneManager& sceneManager):
+	Scene{sceneManager}
 {
-	sceneManager_ = sceneManager;
 }
 
 ClearScene::‾ClearScene()
@@ -26,14 +26,14 @@ void ClearScene::Start()
 void ClearScene::Update()
 {
 	if (isFadingEnd_) {
-		sceneManager_->LoadMapNextLevel();
-		sceneManager_->EndOverlap();
-		sceneManager_->StartFade(Fade::FADEIN);
+		sceneManager_.LoadMapNextLevel();
+		sceneManager_.EndOverlap();
+		sceneManager_.StartFade(Fade::FADEIN);
 		return;
 	}
 
 	if (Input::GetButtonDown(PAD_INPUT_A)) {
-		sceneManager_->StartFade(Fade::FADEOUT);
+		sceneManager_.StartFade(Fade::FADEOUT);
 		isFadingEnd_ = true;
 	}
 }

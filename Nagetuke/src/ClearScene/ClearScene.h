@@ -7,7 +7,7 @@ class ClearScene :
     public Scene
 {
 public:
-    ClearScene(SceneManager* sceneManager);
+    ClearScene(SceneManager& sceneManager);
     ‾ClearScene();
 public:
     void Start() override;
@@ -21,6 +21,5 @@ public:
 private:
     bool isFadingEnd_ = false;
     bool isSceneEnd_ = false;
-    SceneManager* sceneManager_{ nullptr };
 };
 

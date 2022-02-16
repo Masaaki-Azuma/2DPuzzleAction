@@ -1,7 +1,5 @@
 #include "SceneManager.h"
-#include "NullScene.h"
 
-static NullScene nullScene;
 
 SceneManager::SceneManager():
 	currentScene_{&nullScene},

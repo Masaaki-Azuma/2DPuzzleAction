@@ -17,7 +17,7 @@ public:
     std::vector<std::unique_ptr<Effect>> effects_;
 
 public:
-    PlayScene(SceneManager* sceneManager);
+    PlayScene(SceneManager& sceneManager);
     ‾PlayScene();
 public:
     void Start() override;
@@ -37,6 +37,5 @@ private:
     bool isLevelEnd_ = false;
     bool isFadingEnd_ = false;
     bool isSceneEnd_ = false;
-    SceneManager* sceneManager_{ nullptr };
 };
 

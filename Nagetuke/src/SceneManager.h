@@ -5,6 +5,7 @@
 #include <string>
 #include "Fade.h"
 #include "PlayScene/Map.h"
+#include "NullScene.h"
 
 class Scene;
 
@@ -40,6 +41,9 @@ private:
 	Fade fade_;
 	std::unordered_map<std::string, Scene*> scenes_;
 	Map map_;
+
+	NullScene nullScene{ *this };
+
 };
 
 #endif//!SCENE_MANAGER_H_

@@ -27,9 +27,9 @@ public:
         Sound::LoadSE();
 
         sceneManager_.Add("TitleScene", new TitleScene(sceneManager_));
-        sceneManager_.Add("PlayScene", new PlayScene(&sceneManager_));
-        sceneManager_.Add("PauseScene", new PauseScene(&sceneManager_));
-        sceneManager_.Add("ClearScene", new ClearScene(&sceneManager_));
+        sceneManager_.Add("PlayScene", new PlayScene(sceneManager_));
+        sceneManager_.Add("PauseScene", new PauseScene(sceneManager_));
+        sceneManager_.Add("ClearScene", new ClearScene(sceneManager_));
 
         sceneManager_.Change("TitleScene");
     }

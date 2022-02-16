@@ -9,7 +9,7 @@ class PauseScene :
         TITLE,
     };
 public:
-    PauseScene(SceneManager* sceneManager);
+    PauseScene(SceneManager& sceneManager);
     ‾PauseScene();
 public:
     void Start() override;
@@ -23,6 +23,5 @@ private:
     int selectedOption_ = 0;
     bool isFadingEnd_ = false;
     bool isSceneEnd_ = false;
-    SceneManager* sceneManager_{ nullptr };
 };
 
