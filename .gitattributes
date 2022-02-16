@@ -68,3 +68,7 @@
 
 * Text format
 *.csv filter=lfs diff=lfs merge=lfs -text
+
+* Font format
+*.ttf filter=lfs diff=lfs merge=lfs -text
+
