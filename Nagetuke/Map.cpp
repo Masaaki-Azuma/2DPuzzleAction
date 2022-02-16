@@ -60,7 +60,7 @@ void Map::LoadLevel(int levelNum)
 	LoadTerrain(stageName);
 	LoadObjects(stageName);
 	Camera::LookAt(playScene_->player_->GetX(), playScene_->player_->GetY());
-	Sound::PlayBGM("BGM/Beat_&#039n&#039_Bass.mp3", 220);
+	Sound::PlayBGM("Assets/BGM/Beat_&#039n&#039_Bass.mp3", 220);
 }
 
 void Map::LoadLevel()
@@ -76,14 +76,14 @@ void Map::LoadLevel()
 	LoadTerrain(stageName);
 	LoadObjects(stageName);
 	Camera::LookAt(playScene_->player_->GetX(), playScene_->player_->GetY());
-	Sound::PlayBGM("BGM/Beat_&#039n&#039_Bass.mp3", 220);
+	Sound::PlayBGM("Assets/BGM/Beat_&#039n&#039_Bass.mp3", 220);
 }
 
 
 //指定したステージを読み込む
 void Map::LoadTerrain(std::string stageName)
 {
-	std::string filePath = "Map/" + stageName + "_terrain.csv";
+	std::string filePath = "Assets/Map/" + stageName + "_terrain.csv";
 	std::vector<std::string> lines = FileReader::ReadLines(filePath);
 	assert(lines.size() == Map::Height_);//読み込んだ行数は合っているか？
 
@@ -111,7 +111,7 @@ void Map::RestartLevel()
 
 void Map::LoadObjects(std::string stageName)
 {
-	std::string filePath = "Map/" + stageName + "_object.csv";
+	std::string filePath = "Assets/Map/" + stageName + "_object.csv";
 	std::vector<std::string> lines = FileReader::ReadLines(filePath);
 	assert(lines.size() == Map::Height_);//読み込んだ行数は合っているか？
 

@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="BoxItem.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ClearScene.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="BoxItem.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ClearScene.h" />
@@ -215,9 +217,6 @@
     <ClInclude Include="ThrownBox.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="World.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Map\stage_test.csv" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Image\backGround.png" />

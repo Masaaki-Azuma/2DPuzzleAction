@@ -1,16 +1,17 @@
-#include "DxLib.h"
-#include "Game.h"
+#include "Application.h"
+
+#include <DxLib.h>
 #include "MyGame.h"
 #include "Fps.h"
 #include "Screen.h"
 
-int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+void Application::run()
 {
 	SetWindowText("Nagetuke");
 	SetGraphMode(Screen::Width, Screen::Height, 32);
 	ChangeWindowMode(TRUE);
 	DxLib_Init();
-	LPCSTR font_path = "Font/misaki_mincho.ttf";
+	LPCSTR font_path = "Assets/Font/misaki_mincho.ttf";
 	AddFontResourceEx(font_path, FR_PRIVATE, NULL);
 	SetDrawScreen(DX_SCREEN_BACK);	// DXライブラリ初期化処理
 
@@ -33,5 +34,4 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	game.End();
 	RemoveFontResourceEx(font_path, FR_PRIVATE, NULL);
 	DxLib_End();	// DXライブラリ終了処理
-	return 0;
 }

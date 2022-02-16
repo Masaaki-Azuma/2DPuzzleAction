@@ -30,7 +30,7 @@ void TitleScene::Start()
 {
 	isFadingEnd_ = false;
 	isSceneEnd_ = false;
-	Sound::PlayBGM("BGM/コイントス.mp3", 150);
+	Sound::PlayBGM("Assets/BGM/コイントス.mp3", 150);
 	sceneManager_->StartFade(Fade::FADEIN);
 }
 

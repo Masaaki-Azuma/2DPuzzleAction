@@ -14,16 +14,16 @@ int Sound::select;
 
 void Sound::LoadSE()
 {
-	boxThrow = LoadSoundMem("SE/Motion-Swish03-1.mp3");
-	stickBlock = LoadSoundMem("SE/Motion-Pop08-3.mp3");
-	beep = LoadSoundMem("SE/クイズ不正解2.mp3");
-	clear = LoadSoundMem("SE/Jingle#01.mp3");
-	gather = LoadSoundMem("SE/パッ.mp3");
-	getItem = LoadSoundMem("SE/パパッ.mp3");
-	jump = LoadSoundMem("SE/SNES-Action01-01(Jump).mp3");
-	death = LoadSoundMem("SE/Onmtp-Negative06-1.mp3");
-	cursorMove = LoadSoundMem("SE/カーソル移動3.mp3");
-	select = LoadSoundMem("SE/決定、ボタン押下34.mp3");
+	boxThrow = LoadSoundMem("Assets/SE/Motion-Swish03-1.mp3");
+	stickBlock = LoadSoundMem("Assets/SE/Motion-Pop08-3.mp3");
+	beep = LoadSoundMem("Assets/SE/クイズ不正解2.mp3");
+	clear = LoadSoundMem("Assets/SE/Jingle#01.mp3");
+	gather = LoadSoundMem("Assets/SE/パッ.mp3");
+	getItem = LoadSoundMem("Assets/SE/パパッ.mp3");
+	jump = LoadSoundMem("Assets/SE/SNES-Action01-01(Jump).mp3");
+	death = LoadSoundMem("Assets/SE/Onmtp-Negative06-1.mp3");
+	cursorMove = LoadSoundMem("Assets/SE/カーソル移動3.mp3");
+	select = LoadSoundMem("Assets/SE/決定、ボタン押下34.mp3");
 }
 
 void Sound::PlayBGM(const char* fileName, int volume)
