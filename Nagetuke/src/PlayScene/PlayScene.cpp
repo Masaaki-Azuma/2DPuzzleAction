@@ -1,10 +1,12 @@
-#include "PlayScene/PlayScene.h"
-#include "DxLib.h"
+#include "PlayScene.h"
+
 #include <algorithm>//for_each
-#include "Game.h"
+#include <DxLib.h>
+
 #include "Util/Input.h"
-#include "AssetsManager/Sound.h"
 #include "Util/MyMath.h"
+#include "AssetsManager/Sound.h"
+#include "Game.h"
 #include "Map.h"
 #include "PlayScene/Camera.h"
 #include "TitleScene/TitleScene.h"
@@ -13,7 +15,6 @@
 #include "SceneManager.h"
 
 /*TODO:
-遊べるステージ10つ
 ヘッダファイルの掃除
 MapからFadeを分離
 */
@@ -32,6 +33,7 @@ PlayScene::‾PlayScene()
 
 void PlayScene::Start()
 {
+	//フラグを初期化
 	isFadingEnd_ = false;
 	isSceneEnd_ = false;
 	if (!map_) {

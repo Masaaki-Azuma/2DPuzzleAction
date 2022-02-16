@@ -1,6 +1,8 @@
-#pragma once
+#ifndef MY_GAME_H_
+#define MY_GAME_H_
+
 #include "Game.h"
-#include "DxLib.h"
+#include <DxLib.h>
 #include "Util/Input.h"
 #include "AssetsManager/Image.h"
 #include "AssetsManager/Sound.h"
@@ -50,3 +52,4 @@ public:
         Font::DeleteFont();
     }
 };
+#endif//!MY_GAME_H_

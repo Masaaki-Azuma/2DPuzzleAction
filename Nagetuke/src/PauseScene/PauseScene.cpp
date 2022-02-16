@@ -1,14 +1,23 @@
-#include "PauseScene/PauseScene.h"
-#include "DxLib.h"
+#include "PauseScene.h"
+
+#include <string>
+#include <DxLib.h>
+
+#include "Util/Input.h"
 #include "AssetsManager/Image.h"
 #include "AssetsManager/Sound.h"
-#include "Util/Input.h"
 #include "AssetsManager/Font.h"
-#include "Game.h"
 #include "TitleScene/TitleScene.h"
-#include <string>
+#include "Game.h"
 #include "SceneManager.h"
 
+enum
+{
+	RETURN, //0
+	TITLE,
+};
+
+//ポーズメニュー項目数
 const int MaxOption = 2;
 
 PauseScene::PauseScene(SceneManager& sceneManager):
@@ -35,6 +44,24 @@ void PauseScene::Update()
 		return;
 	}
 
+	//選択中の項目を決定
+	if (Input::GetButtonDown(PAD_INPUT_A))
+	{
+		if (selectedOption_ == RETURN) {
+			Sound::ChangeVolume(220);
+			sceneManager_.EndOverlap();
+		}
+		else if (selectedOption_ == TITLE) {
+			sceneManager_.StartFade(Fade::FADEOUT);
+			isFadingEnd_ = true;
+		}
+	}
+	//ポーズボタンを押すと、プレイシーンへ戻る
+	if (Input::GetButtonDown(PAD_INPUT_R)) {//START
+		Sound::ChangeVolume(220);
+		sceneManager_.EndOverlap();
+	}
+
 	if (Input::GetButtonDown(PAD_INPUT_UP)) {
 		selectedOption_ = (selectedOption_ + MaxOption - 1) % MaxOption;
 	}
@@ -42,23 +69,6 @@ void PauseScene::Update()
 		selectedOption_ = (selectedOption_ + 1) % MaxOption;
 	}
 
-	if (Input::GetButtonDown(PAD_INPUT_A))
-	{
-		Option option = (Option)selectedOption_;
-		if (option == RETURN) {
-			Sound::ChangeVolume(220);
-			sceneManager_.EndOverlap();
-		}
-		else if (option == TITLE) {
-			sceneManager_.StartFade(Fade::FADEOUT);
-			isFadingEnd_ = true;
-		}
-	}
-
-	if (Input::GetButtonDown(PAD_INPUT_R)) {//START
-		Sound::ChangeVolume(220);
-		sceneManager_.EndOverlap();
-	}
 }
 
 bool PauseScene::IsSceneEnd() const
@@ -76,10 +86,11 @@ void PauseScene::Draw() const
 	const int fontHandle = Font::fontHandle;
 	static const unsigned int color = GetColor(255, 255, 255);
 
+	//背面を少し暗くする
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 100);
 	DrawGraph(0, 0, Image::black, false);
-
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
 	static const int baseX = 580;
 	static const int baseY = 400;
 	static const int space = 60;
@@ -90,4 +101,8 @@ void PauseScene::Draw() const
 		DrawStringToHandle(baseX, baseY + space * i, optionNames[i], color, fontHandle);
 	}
 	DrawStringToHandle(baseX - 120, baseY + space * selectedOption_, ">>>          <<<", color, fontHandle);
+}
+
+void PauseScene::End()
+{
 }

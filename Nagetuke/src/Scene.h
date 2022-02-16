@@ -10,9 +10,7 @@ class Scene
 public:
 	Scene(SceneManager& sceneManager):
 		sceneManager_{sceneManager}
-	{
-
-	}
+	{}
 	virtual ‾Scene() = default;
 public:
 	virtual void Start() = 0;

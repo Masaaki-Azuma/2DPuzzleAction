@@ -1,7 +1,9 @@
-#include "ClearScene/ClearScene.h"
-#include "DxLib.h"
-#include "AssetsManager/Image.h"
+#include "ClearScene.h"
+
+#include <DxLib.h>
+
 #include "Util/Input.h"
+#include "AssetsManager/Image.h"
 #include "AssetsManager/Sound.h"
 #include "AssetsManager/Font.h"
 #include "SceneManager.h"
@@ -40,12 +42,17 @@ void ClearScene::Update()
 
 void ClearScene::Draw() const
 {
+	//背面を少し暗くする
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA, 100);
 	DrawGraph(0, 0, Image::black, false);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 	DrawGraph(340, 200, Image::clearLogo, TRUE);
-	DrawStringToHandle(360, 500, "Press A To Next Stage", GetColor(255, 255, 255), Font::fontHandle);  //TODO:フォントへのアクセスの解決
+	DrawStringToHandle(360, 500, "Press A To Next Stage", GetColor(255, 255, 255), Font::fontHandle);
+}
+
+void ClearScene::End()
+{
 }
 
 bool ClearScene::IsSceneEnd() const

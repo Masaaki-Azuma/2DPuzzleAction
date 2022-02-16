@@ -1,5 +1,7 @@
-#include "TitleScene/TitleScene.h"
-#include "DxLib.h"
+#include "TitleScene.h"
+
+#include <DxLib.h>
+
 #include "Util/Input.h"
 #include "AssetsManager/Image.h"
 #include "AssetsManager/Sound.h"
