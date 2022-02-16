@@ -66,3 +66,5 @@
 *.pdb filter=lfs diff=lfs merge=lfs -text
 *.mdb filter=lfs diff=lfs merge=lfs -text
 
+* Text format
+*.csv filter=lfs diff=lfs merge=lfs -text
