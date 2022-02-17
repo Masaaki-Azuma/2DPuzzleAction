@@ -23,7 +23,8 @@ MapからFadeを分離
 //カメラを分離
 
 PlayScene::PlayScene(SceneManager& sceneManager):
-	Scene{sceneManager}
+	Scene{sceneManager},
+	map_{sceneManager.GetMap()}
 {
 }
 
@@ -36,14 +37,12 @@ void PlayScene::Start()
 	//フラグを初期化
 	isFadingEnd_ = false;
 	isSceneEnd_ = false;
-	if (!map_) {
-		map_ = sceneManager_.GetMapPtr();
-	}
-	if (!map_->playScene_) {
-		map_->playScene_ = this;
-	}
+
+	//シーンを登録
+	map_.SetPlayScene(this);
+	
 	sceneManager_.StartFade(Fade::FADEIN);
-	map_->LoadLevel();
+	map_.LoadLevel();
 	Camera::LookAt(player_->GetX(), player_->GetY());
 }
 
@@ -52,7 +51,7 @@ void PlayScene::Update()
 	//暗転中に現レベルをロードし、フェードインする
 	if (isLevelEnd_) {
 		sceneManager_.StartFade(Fade::FADEIN);
-		map_->LoadLevel();
+		map_.LoadLevel();
 		Camera::LookAt(player_->GetX(), player_->GetY());
 		isLevelEnd_ = false;
 		return;
@@ -69,7 +68,7 @@ void PlayScene::Update()
 		gameObjects_.at(i)->Update();
 	}
 
-	if(map_->GetCurrentLevel() != 0) Camera::LookAt(player_->GetX(), player_->GetY());
+	if(map_.GetCurrentLevel() != 0) Camera::LookAt(player_->GetX(), player_->GetY());
 
 	for (auto& e : effects_) {
 		e->Update();
@@ -108,7 +107,7 @@ void PlayScene::Update()
 
 void PlayScene::Draw() const
 {
-	map_->Draw();
+	map_.Draw();
 	for(const auto& go : gameObjects_)
 	{
 		go->Draw();
@@ -144,12 +143,12 @@ void PlayScene::RestartLevel()
 
 bool PlayScene::IsBlock(float x, float y)
 {
-	return map_->IsBlock(x, y);
+	return map_.IsBlock(x, y);
 }
 
 bool PlayScene::IsNeedle(float x, float y)
 {
-	return map_->IsNeedle(x, y);
+	return map_.IsNeedle(x, y);
 }
 
 void PlayScene::GameClear()

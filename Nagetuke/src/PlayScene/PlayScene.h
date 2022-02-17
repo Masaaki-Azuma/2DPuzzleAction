@@ -25,7 +25,8 @@ public:
     void EndScene() override { isSceneEnd_ = true; }
     std::string Next() const override;
     void RestartLevel();
-    Map* GetMapPtr() { return map_; }
+    //Map* GetMapPtr() { return map_; }
+    Map& GetMap() { return map_; }
     bool IsBlock(float x, float y);
     bool IsNeedle(float x, float y);
     void GameClear();
@@ -36,7 +37,8 @@ public:
     std::vector<std::unique_ptr<Effect>> effects_;
 
 private:
-    Map* map_ = nullptr;
+    //Map* map_ = nullptr;
+    Map& map_;
     bool isLevelEnd_ = false;
     bool isFadingEnd_ = false;
     bool isSceneEnd_ = false;

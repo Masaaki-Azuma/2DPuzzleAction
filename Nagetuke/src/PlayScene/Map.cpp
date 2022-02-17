@@ -37,6 +37,11 @@ void Map::SpawnObject(int chipX, int chipY, int objectID)
 	}
 }
 
+void Map::SetPlayScene(PlayScene* playScene)
+{
+	playScene_ = playScene;
+}
+
 void Map::SetLevel(int level)
 {
 	currentLevel_ = level;

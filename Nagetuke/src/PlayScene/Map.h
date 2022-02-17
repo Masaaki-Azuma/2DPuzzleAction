@@ -31,6 +31,7 @@ public:
 private:
 	void SpawnObject(int chipX, int chipY, int objectID);
 public:
+	void SetPlayScene(PlayScene* playScene);
 	void SetLevel(int level);
 	void SetNextLevel();
 	void LoadLevel(int levelNum);  //指定レベルをロードする、廃止予定

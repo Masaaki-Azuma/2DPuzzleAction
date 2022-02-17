@@ -26,6 +26,7 @@ public:
 
 	void StartFade(Fade::State state);
 	Map* GetMapPtr() { return &map_; }
+	Map& GetMap() { return map_; }
 	void SetMapLevel(int level);
 	void LoadMapNextLevel();
 	int GetMapCurrentLevel() const;
