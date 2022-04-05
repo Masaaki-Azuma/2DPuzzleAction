@@ -7,7 +7,8 @@
 
 void Application::run()
 {
-	SetWindowText("Nagetuke");
+	SetWindowText("ナゲツケ");
+	SetOutApplicationLogValidFlag(FALSE);
 	SetGraphMode(Screen::Width, Screen::Height, 32);
 	ChangeWindowMode(TRUE);
 	DxLib_Init();
